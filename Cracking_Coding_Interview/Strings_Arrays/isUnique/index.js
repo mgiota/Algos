@@ -6,13 +6,13 @@ function isUnique(str) {
   let strOccurences = {};
   let result = true;
 
-  str.split("").forEach(ch => {
+  for (let ch of str) {
     if (!(ch in strOccurences)) {
       strOccurences[ch] = 1;
     } else {
       strOccurences[ch]++;
-    }
-  });
+    }  
+  }
 
   for (var ch in strOccurences) {
     if (strOccurences[ch] > 1) {
