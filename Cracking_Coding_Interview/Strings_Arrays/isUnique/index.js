@@ -40,13 +40,16 @@ function isUniqueBooleanFlags(str) {
   var char_set = new Array(128);
   for (let ch of str) {
     const chCode = ch.charCodeAt();
-    console.log(char_set[chCode])
     if (char_set[chCode]) {
       return false;
     }
     char_set[chCode] = true;
   }
   return true;
+}
+
+function isUniqueBitwise(str) {
+
 }
 
 module.exports = {
