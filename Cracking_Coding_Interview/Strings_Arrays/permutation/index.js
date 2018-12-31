@@ -29,7 +29,7 @@ const permutationCharCounts = (str1, str2) => {
   const str1CharCounts = _buildCharCounts(str1);
   const str2CharCounts = _buildCharCounts(str2);
 
-  // TODO 
+  // TODO
   for (let ch in str1CharCounts) {
     if (str1CharCounts[ch] !== str2CharCounts[ch]) {
       return false;
@@ -54,6 +54,9 @@ const permutationComparison = (str1, str2) => {
 
   return true;
 }
+
+// sseda -> s:2
+// sssed -> s:3
 
 module.exports = {
   permutation,
