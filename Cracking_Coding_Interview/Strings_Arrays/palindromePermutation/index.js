@@ -7,6 +7,7 @@
 * than one character that is odd
 */
 const palindromePermutation = str => {
+  str = _normalize(str);
   let charCounts = {};
   for (let ch of str) {
     if (ch in charCounts) {
@@ -16,8 +17,8 @@ const palindromePermutation = str => {
     }
   }
   let oddCount = 0;
-  for (let count in charCounts) {
-    if (count % 2 === 1) {
+  for (let ch in charCounts) {
+    if (charCounts[ch] % 2 === 1) {
       oddCount++;
     }
     if (oddCount > 1) {
@@ -75,6 +76,33 @@ const _buildCounts = str => {
     }
   }
   return charCounts;
+}
+
+// remove non-letter characters
+const _normalize = str => {
+  str = str.toLowerCase();
+  let letters = [];
+  for (let ch of str) {
+    const code = ch.charCodeAt();
+    const diff = code - 'a'.charCodeAt();
+    if (diff >= 0 && diff <= 25) {
+      letters.push(ch);
+    }
+  }
+  return letters.join('');
+}
+
+function _getCharCode2(ch) {
+  const a = "a".charCodeAt();
+  const z = "z".charCodeAt();
+  const val = ch.charCodeAt();
+
+  const diff = val - a;
+  if (diff >= 0 && diff <= 25) {
+    return diff;
+  } else {
+    return -1;
+  }
 }
 
 /**

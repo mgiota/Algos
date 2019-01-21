@@ -27,7 +27,7 @@ const urlify2 = (str, length) => {
   }
 
   newLength = length + 2 * numOfSpaces;
-  for (let i = length - 1; i > 0; i--) {
+  for (let i = length - 1; i >= 0; i--) {
     if (arr[i] === ' ') {
       arr[newLength - 1] = '0';
       arr[newLength - 2] = '2';
@@ -42,6 +42,8 @@ const urlify2 = (str, length) => {
   return arr.join('');
 }
 
+// "This is a test      "
+console.log(urlify2(' This is just a test             ', 20));
 module.exports = {
   urlify,
   urlify2

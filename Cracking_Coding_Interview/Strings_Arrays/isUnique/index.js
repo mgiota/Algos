@@ -37,6 +37,9 @@ function isUniqueNoDataStrucure(str) {
 }
 
 function isUniqueBooleanFlags(str) {
+  if (str.length > 128) {
+    return false;
+  }
   var char_set = new Array(128);
   for (let ch of str) {
     const chCode = ch.charCodeAt();
@@ -66,14 +69,11 @@ function isUniqueBitwise(str) {
 
 function isUniqueLast(str) {
   //g i t a g
+  str = str.split('').sort();
   for (let i = 0; i < str.length - 1; i++) {
-    if (str[i] !== str[i + 1]) {
+    if (str[i] === str[i + 1]) {
       return false;
     }
-  }
-
-  if (str[0] !== str[str.length - 1]) {
-    return false;
   }
 
   return true;
