@@ -31,3 +31,5 @@ class QUPathCompression {
     }
   }
 }
+
+export default QUPathCompression;

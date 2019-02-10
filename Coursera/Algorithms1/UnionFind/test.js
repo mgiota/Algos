@@ -1,7 +1,6 @@
 import QuickFind from './QuickFind';
 import QuickUnion from './QuickUnion';
-
-
+import SocialNetwork from './SocialNetwork';
 describe('#QuickFind', () => {
   let uf;
   beforeEach(() => {
@@ -25,7 +24,6 @@ describe('#QuickFind', () => {
   });
 });
 
-
 describe('#Quick Union', () => {
   let qu;
   beforeEach(() => {
@@ -47,4 +45,18 @@ describe('#Quick Union', () => {
     console.log(qu.ids)
     expect(qu.connected(1,3)).toEqual(false);
   });
+});
+
+describe.only('#SocialNetwork', () => {
+  test('fully connected', () => {
+    let network = new SocialNetwork(5);
+    network.addFriendShip(0, 1, new Date("2018-01-04"));
+    network.addFriendShip(2, 3, new Date("2018-01-15"));
+    network.addFriendShip(3, 4, new Date("2018-04-16"));
+    network.addFriendShip(1, 3, new Date("2018-05-28"));
+    const date = network.findEarliestDate();
+    console.log(date)
+    const expected = expect.stringContaining("2018-05-28");
+    expect(date).toEqual(expected)
+  })
 });
