@@ -1,4 +1,9 @@
-class UF {
+/* Quick Find */
+// Data structure
+// Integer array id[] of size N
+// Find: p and q are connected if they have the same id
+// Connect: change the 1st one to the value of 2nd one
+class QuickFind {
   constructor(n) {
     //this.ids = [...Array(n).keys()];
     // this.ids = Array.from(Array(n).keys());
@@ -20,11 +25,10 @@ class UF {
     console.log(qid, '!!qid')
     for (let i = 0; i < this.ids.length; i++) {
       if (this.ids[i] === pid) {
-        console.log(i, '!!!i')
         this.ids[i] = qid;
       }
     }
   }
 }
 
-export default UF;
+export default QuickFind;

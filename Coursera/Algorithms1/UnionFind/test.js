@@ -1,11 +1,11 @@
-import UF from './UF';
+import QuickFind from './QuickFind';
 import QuickUnion from './QuickUnion';
 
 
-describe('#UF', () => {
+describe('#QuickFind', () => {
   let uf;
   beforeEach(() => {
-    uf = new UF(10);
+    uf = new QuickFind(10);
   });
 
   test('constructor', () => {
@@ -26,7 +26,7 @@ describe('#UF', () => {
 });
 
 
-describe.only('#Quick Union', () => {
+describe('#Quick Union', () => {
   let qu;
   beforeEach(() => {
     qu = new QuickUnion(10);

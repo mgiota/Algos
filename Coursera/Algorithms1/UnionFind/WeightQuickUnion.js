@@ -1,3 +1,4 @@
+// Avoid tall trees
 class WeightQuickUnion {
   constructor(n) {
     this.ids = Array.from(Array(n).keys());
