@@ -1,4 +1,8 @@
 // Avoid tall trees
+// Keep track of number of objects of each tree
+// Link the root of smaller tree to root of larger tree
+// the average distance from the root is much much lower
+// the depth of any node is at most lgN
 class WeightQuickUnion {
   constructor(n) {
     this.ids = Array.from(Array(n).keys());
@@ -19,8 +23,8 @@ class WeightQuickUnion {
   union(p, q) {
     const pRoot = this.root(p);
     const qRoot = this.root(q);
-    const pSize = this.size(pRoot)
-    const qSize = this.size(qRoot);
+    const pSize = this.size[pRoot];
+    const qSize = this.size[qRoot];
     if (pRoot === qRoot) return;
     if (pSize < qSize) {
       this.ids[pRoot] = qRoot;
