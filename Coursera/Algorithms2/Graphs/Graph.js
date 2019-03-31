@@ -14,7 +14,7 @@ class Graph {
   }
 
   adj(v) {
-      return this.adj[v];
+      return this.adjList[v];
   }
 
   size() {
