@@ -13,6 +13,10 @@ class Graph {
     this.adjList.get(w).push(v);
   }
 
+  adj(v) {
+    return this.adjList.get(v);
+  }
+
   printGraph() {
     for (let v of this.adjList.keys()) {
       let edges = "";
