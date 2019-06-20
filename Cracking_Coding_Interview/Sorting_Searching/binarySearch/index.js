@@ -16,3 +16,23 @@ const doSearch = (arr, value) => {
 
   return -1;
 }
+
+const doSearchRecursive = (arr, value, min, max) => {
+  if (min > max) {
+    return -1;
+  }
+  let middle = min + Math.floor((max - min) / 2);
+  //let middle = Math.floor((min + max) / 2);
+  if (arr[middle] === value) {
+    return middle;
+  } else if (arr[middle] > value) {
+    return doSearchRecursive(arr, value, min, middle - 1);
+  } else {
+    return doSearchRecursive(arr, value, middle + 1, max);
+  }
+}
+
+module.exports = {
+  doSearch,
+  doSearchRecursive
+};
