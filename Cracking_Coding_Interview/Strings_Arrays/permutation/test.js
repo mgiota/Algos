@@ -69,4 +69,34 @@ describe('#permutationComparison', () => {
     const result = index.permutationComparison('nina', 'ninb');
     expect(result).toEqual(false);
   });
+
+  test('returns false when strings differ only on one character count', () => {
+    const result = index.permutationComparison('giota', 'giott');
+    expect(result).toEqual(false);
+  });
+
+  test('returns false when strings differ only on one character count', () => {
+    const result = index.permutationComparison('giott', 'giota');
+    expect(result).toEqual(false);
+  });
+
+  test('returns false when second string contains a character that is not present in the first string', () => {
+    const result = index.permutationComparison2('giott', 'giota');
+    expect(result).toEqual(false);
+  });
+
+  test('returns false when second string contains a character more times that it appears in the first string', () => {
+    const result = index.permutationComparison2('giota', 'giott');
+    expect(result).toEqual(false);
+  });
+
+  test('returns false when ...', () => {
+    const result = index.permutationCharArray('giott', 'giota');
+    expect(result).toEqual(false);
+  });
+
+  test('returns false when ...', () => {
+    const result = index.permutationCharArray('giota', 'giott');
+    expect(result).toEqual(false);
+  });
 })

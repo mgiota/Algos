@@ -87,6 +87,24 @@ const permutationComparison = (str1, str2) => {
   return true;
 }
 
+const permutationComparison2 = (str1, str2) => {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+
+  let str1CharCounts = _buildCharCounts(str1);
+  for (let ch of str2) {
+    // if (!(ch in str1CharCounts)) { // str1CharCounts[ch] === undefined
+    //   return false;
+    // }
+    str1CharCounts[ch]--;
+    if (Number.isNaN(str1CharCounts[ch]) || str1CharCounts[ch] < 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
 const _buildCharSet = str => {
   let charSet = new Array(128).fill(0);
   for (let ch of str) {
@@ -97,7 +115,7 @@ const _buildCharSet = str => {
   return charSet;
 }
 
-const solution4 = (str1, str2) => {
+const permutationCharArray = (str1, str2) => {
   str1 = str1.trim().toLowerCase();
   str2 = str2.trim().toLowerCase();
 
@@ -106,12 +124,13 @@ const solution4 = (str1, str2) => {
   }
 
   let charSet = _buildCharSet(str1);
-  console.log(charSet)
 
   for (let ch of str2) {
     const code = ch.charCodeAt();
     charSet[code]--;
 
+    // 2nd string contains ch more times than it appears on 1st string
+    // ch doesn't appear on 1st string
     if (charSet[code] < 0) {
       return false;
     }
@@ -120,7 +139,7 @@ const solution4 = (str1, str2) => {
   return true;
 }
 
-console.log(solution4('edessa', 'ebessa'));
+// console.log(permutationCharArray('edessa', 'ebessa'));
 
 // sseda -> s:2
 // sssed -> s:3
@@ -128,5 +147,7 @@ console.log(solution4('edessa', 'ebessa'));
 module.exports = {
   permutation,
   permutationCharCounts,
-  permutationComparison
+  permutationComparison,
+  permutationComparison2,
+  permutationCharArray
 }
