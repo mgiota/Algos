@@ -28,5 +28,6 @@ class LinkedList {
   }
 }
 
+export  { LinkedListNode };
 
 export default LinkedList;
